@@ -6,8 +6,8 @@
     owner: root
     group: root
 
-- name: Change Password for user ubuntu
-  user: name=ubuntu password="{{ password_for_user_ubuntu | password_hash('sha512', 'saltdfjalsdf') }}" update_password=always
+- name: Change Password for user root
+  user: name=root password="{{ password_for_user_root | password_hash('sha512', 'saltdfjalsdf') }}" update_password=always
 
 - name: Restart sshd
   service:

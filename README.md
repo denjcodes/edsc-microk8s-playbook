@@ -18,7 +18,7 @@ Requires local installation of [Ansible](https://www.ansible.com/) and [Terrafor
 ### Pass variables on the command line
 
 ```bash
-ansible-playbook deploy.yaml --extra-vars 'instance_count=5 key_name="Dennis 2017"'
+ansible-playbook deploy.yaml -vvv --extra-vars 'instance_count=2 key_name="dev"'
 ```
 
 ### Using a file with variables

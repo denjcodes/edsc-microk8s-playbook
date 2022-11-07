@@ -21,7 +21,7 @@
   tasks:
     - name: Wait for SSH connectivity
       wait_for_connection:
-        timeout: 180
+        timeout: 1800
 
 # ----------------------------------------------------
 - name: Manage SSH known_hosts file on local host
@@ -48,26 +48,26 @@
       vars: { "required_key": "cloud_init_success" }
 
 #-------------------------------------------------------
-- name: Configure password-based login for user ubuntu
+- name: Configure password-based login for user root
   hosts: all
-  user: ubuntu
+  user: root
   become: True
   become_user: root
   roles:
     - role: allow-password
-      when: enable_password_login_for_user_ubuntu == True
+      when: enable_password_login_for_user_root == True
 
 - name: Delete resources for failed hosts
   hosts: localhost
   roles:
     - role: delete-failed
       vars: { "required_key": "allow_password_success" }
-      when: enable_password_login_for_user_ubuntu == True
+      when: enable_password_login_for_user_root == True
 
 # ----------------------------------------------------
 - name: Install microk8s
   hosts: all
-  user: ubuntu
+  user: root
   become: True
   become_user: root
   roles:
