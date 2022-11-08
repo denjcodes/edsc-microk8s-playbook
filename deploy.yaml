@@ -17,7 +17,7 @@
 - name: Wait during nodes to be available
   hosts: all
   gather_facts: false
-  user: ubuntu
+  user: root
   tasks:
     - name: Wait for SSH connectivity
       wait_for_connection:
@@ -36,7 +36,7 @@
 - name: Wait for nodes to finish cloud init
   hosts: all
   gather_facts: False
-  user: ubuntu
+  user: root
   tags: ["cloud"]
   roles:
     - role: wait-cloud-init-done

@@ -22,7 +22,7 @@
 - name: Generate terraform inventory template file
   template:
     src: files/terraform-inventory.tmpl.j2
-    dest: "{{ terraform_folder }}/terraform-inventory.tm
+    dest: "{{ terraform_folder }}/terraform-inventory.tmpl"
 
 - name: Run generated terraform script
   terraform:
